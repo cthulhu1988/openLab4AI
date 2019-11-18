@@ -6,14 +6,78 @@ import random as rd
 from collections import Counter
 centroid_list = []
 
+def main():
+    #################SET UP DATA #############################
+    random_seed = int(sys.argv[1])
+    num_clusters = int(sys.argv[2])
+    training_data = sys.argv[3] # string
+    testing_data = sys.argv[4] # string
+
+    training_data_df = pd.read_csv(training_data, sep=" ", header=None)
+    num_train_rows = len(training_data_df.index)
+    num_train_attributes = len(training_data_df.columns)-1
+
+    testing_data_df = pd.read_csv(testing_data, sep=" ", header=None)
+
+    ################# PICK CENTROIDS ######################################################
+    centroid_vector = pick_centroids(training_data_df, num_clusters)
+    #################### LOOP THROUGH AND ADJUST CENTROIDS #######################################
+    done = False
+    max_iter = 0
+    while not done:
+        max_iter +=1
+        if centroids_all_true(centroid_vector) or max_iter > 300:
+            done = True
+        else:
+            pass_through(centroid_vector, training_data_df)
+            for ii in centroid_vector:
+                ii.update_position(num_train_attributes)
+    ########### MAJORITY VOTE CLASS LABEL #####################
+    for i in centroid_vector:
+        i.name = i.majority_cls()
+
+    ############CLASSIFY DATA #################################
+    acc = classify_test_data(testing_data_df, centroid_vector)
+    print("accuracy {}".format(acc))
+
+    # Finally, the program will calculate the closest vector to each testing example and determine if the cluster label and the testing example label match (a correct classification).
+    # The program should then output the number of testing examples classified correctly by the K-means clustering
+######################################################
+################### FUNCTIONS ########################
+######################################################
+def classify_test_data(data, centroid_vector):
+    total = 0 ; counter = 0 ; min = 1000000
+    # get two datasets, one with data and one with class labels.
+    info = (data.iloc[:,:-1]) ; class_label = data.iloc[:,-1:]
+    # convert them to np arrays for funsies.
+    np_info = np.array(info) ; np_cls = np.array(class_label)
+    #iterate through each line
+    for idx, line in enumerate(np_info):
+        total +=1
+        classified_center = -1
+        for j, center in enumerate(centroid_vector):
+            delta = distanceBetweenPoints(center.loc, line)
+            #print("delta {}".format(delta))
+            if delta < min:
+                min = delta
+                classified_center = j
+        min = 1000000
+        predicted_label = int(centroid_vector[classified_center].name)
+        actual_label = int((np_cls[idx]))
+        if(predicted_label == actual_label):
+            counter +=1
+    return counter / total
+
+
 def pick_centroids(data, num_clusters):
     num_lines = len(data.index)
     for x in range(num_clusters):
-        number_list = []
+        #number_list = []
         random_line = rd.randint(0,num_lines)
         info = (data.iloc[random_line,:-1])
-        for val in info:
-            number_list.append(val)
+        number_list = [val for val in info ]
+        # for val in info:
+        #     number_list.append(val)
         number_list = np.array(number_list)
         new_center = Centroid(number_list)
         centroid_list.append(new_center)
@@ -61,41 +125,10 @@ def centroids_all_true(centroid_vector):
             is_done = False
     return is_done
 
-def main():
-    #################SET UP DATA #############################
-    random_seed = int(sys.argv[1])
-    num_clusters = int(sys.argv[2])
-    training_data = sys.argv[3] # string
-    testing_data = sys.argv[4] # string
 
-    training_data_df = pd.read_csv(training_data, sep=" ", header=None)
-    num_train_rows = len(training_data_df.index)
-    num_train_attributes = len(training_data_df.columns)-1
-    testing_data_df = pd.read_csv(testing_data, sep=" ", header=None)
-
-    ################# PICK CENTROIDS ######################################################
-    centroid_vector = pick_centroids(training_data_df, num_clusters)
-
-    #################### LOOP THROUGH AND ADJUST CENTROIDS #######################################
-    done = False
-    max_iter = 0
-    while not done:
-        max_iter +=1
-        if centroids_all_true(centroid_vector) or max_iter > 300:
-            done = True
-        else:
-            pass_through(centroid_vector, training_data_df)
-            for ii in centroid_vector:
-                ii.update_position(num_train_attributes)
-    ########### MAJORITY VOTE CLASS LABEL #####################
-    for i in centroid_vector:
-        i.name = i.majority_cls()
-
-
-
-    # Finally, the program will calculate the closest vector to each testing example and determine if the cluster label and the testing example label match (a correct classification).
-    # The program should then output the number of testing examples classified correctly by the K-means clustering
-
+######################################################
+################### CLASSES ##########################
+######################################################
 class Centroid:
     def __init__(self, loc):
         self.loc = loc
@@ -126,11 +159,6 @@ class Centroid:
             #print("sum total {}".format(sum_total))
             if sum_total < 0.01:
                 self.done = True
-
-    def print_points(self):
-        print("NAME  {} and LENG {}".format(self.name, len(self.pointList)))
-        for i in self.pointList:
-            print("Line {}".format(i))
 
     def majority_cls(self):
         max = 0
