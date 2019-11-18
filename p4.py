@@ -30,18 +30,16 @@ def main():
             done = True
         else:
             pass_through(centroid_vector, training_data_df)
-            for ii in centroid_vector:
-                ii.update_position(num_train_attributes)
+            for centroid_obj in centroid_vector:
+                centroid_obj.update_position(num_train_attributes)
     ########### MAJORITY VOTE CLASS LABEL #####################
     for i in centroid_vector:
         i.name = i.majority_cls()
 
     ############CLASSIFY DATA #################################
-    acc = classify_test_data(testing_data_df, centroid_vector)
-    print("accuracy {}".format(acc))
+    total_correct, acc = classify_test_data(testing_data_df, centroid_vector)
+    print("accuracy {} and correct {}".format(acc, total_correct))
 
-    # Finally, the program will calculate the closest vector to each testing example and determine if the cluster label and the testing example label match (a correct classification).
-    # The program should then output the number of testing examples classified correctly by the K-means clustering
 ######################################################
 ################### FUNCTIONS ########################
 ######################################################
@@ -66,19 +64,15 @@ def classify_test_data(data, centroid_vector):
         actual_label = int((np_cls[idx]))
         if(predicted_label == actual_label):
             counter +=1
-    return counter / total
+    return counter, (counter / total)
 
 
 def pick_centroids(data, num_clusters):
     num_lines = len(data.index)
     for x in range(num_clusters):
-        #number_list = []
         random_line = rd.randint(0,num_lines)
         info = (data.iloc[random_line,:-1])
-        number_list = [val for val in info ]
-        # for val in info:
-        #     number_list.append(val)
-        number_list = np.array(number_list)
+        number_list = np.array([val for val in info ])
         new_center = Centroid(number_list)
         centroid_list.append(new_center)
     return centroid_list
@@ -89,15 +83,12 @@ def pass_through(centroids, data):
         cent.class_labels = []
     # iterate through rows
     for y in range(len(data.index)):
-        num_list = [] ; class_label_list= []
         # strip off class label, store it in class_labels
         info = (data.iloc[y,:-1]) ; class_label = data.iloc[y,-1:]
-
-        for l in class_label:
-            class_label_list.append(int(l))
-        # append each val to a list and covert to np array 1d
-        for v in info:
-            num_list.append(v)
+        # list comprehensions save a bit of space
+        class_label_list = [int(l) for l in class_label]
+        num_list = [v for v in info]
+        # convert to np for eash of manipulation
         numLn = np.array(num_list)
         ##########################################
         # assign lines of data to each centroid based on how close they are .
@@ -107,15 +98,13 @@ def pass_through(centroids, data):
             delta = (distanceBetweenPoints(center.loc, numLn))
             if delta < min_distance:
                 min_distance = delta
-                idx = i
-                lne = numLn
-                cls = class_label_list
+                idx = i ; lne = numLn ; cls = class_label_list
         centroids[idx].pointList.append(lne)
         centroids[idx].class_labels.append(cls)
-        idx, lne, cls = 0,0, -1 ; min_distance = 1000000
+        idx, lne, cls = 0,0,-1 ; min_distance = 1000000
 
 def distanceBetweenPoints(x1, x2):
-    # nifty numpy function found in the literatrure
+    # nifty numpy function found in the literature
     return np.linalg.norm(x2 - x1)
 
 def centroids_all_true(centroid_vector):
@@ -124,7 +113,6 @@ def centroids_all_true(centroid_vector):
         if (center.done == False):
             is_done = False
     return is_done
-
 
 ######################################################
 ################### CLASSES ##########################
@@ -146,17 +134,13 @@ class Centroid:
         if len(self.pointList) > 0:
             # turn all points into a DataFrame to get mean
             df = pd.DataFrame(self.pointList)
-            # for range of attributes
-            new_loc_list = []
-            for x in range(self.numCols):
-                new_loc_list.append(df[x].mean())
+            new_loc_list = [df[x].mean() for x in range(self.numCols)]
             new_loc_np = np.array(new_loc_list)
             self.check_done(self.loc, new_loc_np)
             self.loc = new_loc_np
 
     def check_done(self, old_loc, new_loc):
             sum_total = np.linalg.norm(old_loc-new_loc)
-            #print("sum total {}".format(sum_total))
             if sum_total < 0.01:
                 self.done = True
 
