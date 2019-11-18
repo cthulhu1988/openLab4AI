@@ -21,15 +21,19 @@ def pick_centroids(data, num_clusters):
     return centroid_list
 
 def first_pass(centroids, data):
-    num_lines = len(data.index)
-    for y in range(num_lines):
+    # iterate through rows
+    for y in range(len(data.index)):
         num_list = []
+        # strip off class label
         info = (data.iloc[y,:-1])
+        # append each val to a list and covert to np array 1d
         for v in info:
             num_list.append(v)
         numLn = np.array(num_list)
+        ##########################################
         # assign lines of data to each centroid based on how close they are .
         min_distance = 1000000
+        ## for each centroid, find distance between centroid location and line
         for i, center in enumerate(centroids):
             delta = (distanceBetweenPoints(center.loc, numLn))
             if delta < min_distance:
@@ -83,7 +87,7 @@ def main():
             print("BEFORE PASS ",i.loc)
         for ii in centroid_vector:
             j.update_position(num_train_attributes)
-        if centroid_vector[0].done == True or max_iter > 300:
+        if centroid_vector[0].done == True or max_iter > 30:
             done = True
 
 
