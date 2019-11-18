@@ -38,8 +38,8 @@ def main():
 
     ############CLASSIFY DATA #################################
     total_correct, acc = classify_test_data(testing_data_df, centroid_vector)
-    print("accuracy {} and correct {}".format(acc, total_correct))
-
+    #print("accuracy {} and correct {}".format(acc, total_correct))
+    print(total_correct)
 ######################################################
 ################### FUNCTIONS ########################
 ######################################################
