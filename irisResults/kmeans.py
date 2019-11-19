@@ -72,7 +72,7 @@ def pick_centroids(data, num_clusters, random_seed):
     for x in range(num_clusters):
         # get random line number
         random.seed = int(random_seed)
-        random_line_idx = random.randint(0,num_lines)
+        random_line_idx = random.randint(1,139)
         info = np.array(data)
         info = info[random_line_idx,:-1]
         #info = (data.iloc[random_line_idx,:-1])
