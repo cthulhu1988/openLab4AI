@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 import numpy as np
 import pandas as pd
-import math, sys
+import sys
 import random
-from collections import Counter
 centroid_list = []
 
 def main():
@@ -69,12 +68,18 @@ def classify_test_data(data, centroid_vector):
 
 def pick_centroids(data, num_clusters, random_seed):
     num_lines = len(data.index)
+    random_list = []
     for x in range(num_clusters):
         # get random line number
         random.seed = int(random_seed)
-        random_line_idx = random.randint(0,num_lines)
+        random_line_idx = random.randint(1,num_lines-1)
+        # check for repeate centroids
+        while random_line_idx in random_list:
+            random_line_idx = random.randint(1,num_lines-1)
+        random_list.append(random_line_idx)
         info = np.array(data)
         info = info[random_line_idx,:-1]
+        # the pandas way....
         #info = (data.iloc[random_line_idx,:-1])
         number_list = np.array([val for val in info ])
         new_center = Centroid(number_list)
