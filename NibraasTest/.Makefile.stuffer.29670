@@ -1,0 +1,267 @@
+all : targets
+
+target0 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 1 81 >> iris/iris_n_81.txt;"
+
+target1 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 2 81 >> iris/iris_n_81.txt;"
+
+target2 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 3 81 >> iris/iris_n_81.txt;"
+
+target3 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 4 81 >> iris/iris_n_81.txt;"
+
+target4 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 5 81 >> iris/iris_n_81.txt;"
+
+target5 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 6 81 >> iris/iris_n_81.txt;"
+
+target6 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 7 81 >> iris/iris_n_81.txt;"
+
+target7 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 8 81 >> iris/iris_n_81.txt;"
+
+target8 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 9 81 >> iris/iris_n_81.txt;"
+
+target9 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 10 81 >> iris/iris_n_81.txt;"
+
+target10 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 11 81 >> iris/iris_n_81.txt;"
+
+target11 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 12 81 >> iris/iris_n_81.txt;"
+
+target12 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 13 81 >> iris/iris_n_81.txt;"
+
+target13 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 14 81 >> iris/iris_n_81.txt;"
+
+target14 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 15 81 >> iris/iris_n_81.txt;"
+
+target15 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 16 81 >> iris/iris_n_81.txt;"
+
+target16 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 17 81 >> iris/iris_n_81.txt;"
+
+target17 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 18 81 >> iris/iris_n_81.txt;"
+
+target18 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 19 81 >> iris/iris_n_81.txt;"
+
+target19 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 20 81 >> iris/iris_n_81.txt;"
+
+target20 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 21 81 >> iris/iris_n_81.txt;"
+
+target21 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 22 81 >> iris/iris_n_81.txt;"
+
+target22 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 23 81 >> iris/iris_n_81.txt;"
+
+target23 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 24 81 >> iris/iris_n_81.txt;"
+
+target24 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 25 81 >> iris/iris_n_81.txt;"
+
+target25 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 26 81 >> iris/iris_n_81.txt;"
+
+target26 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 27 81 >> iris/iris_n_81.txt;"
+
+target27 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 28 81 >> iris/iris_n_81.txt;"
+
+target28 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 29 81 >> iris/iris_n_81.txt;"
+
+target29 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 30 81 >> iris/iris_n_81.txt;"
+
+target30 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 31 81 >> iris/iris_n_81.txt;"
+
+target31 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 32 81 >> iris/iris_n_81.txt;"
+
+target32 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 33 81 >> iris/iris_n_81.txt;"
+
+target33 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 34 81 >> iris/iris_n_81.txt;"
+
+target34 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 35 81 >> iris/iris_n_81.txt;"
+
+target35 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 36 81 >> iris/iris_n_81.txt;"
+
+target36 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 37 81 >> iris/iris_n_81.txt;"
+
+target37 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 38 81 >> iris/iris_n_81.txt;"
+
+target38 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 39 81 >> iris/iris_n_81.txt;"
+
+target39 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 40 81 >> iris/iris_n_81.txt;"
+
+target40 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 41 81 >> iris/iris_n_81.txt;"
+
+target41 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 42 81 >> iris/iris_n_81.txt;"
+
+target42 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 43 81 >> iris/iris_n_81.txt;"
+
+target43 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 44 81 >> iris/iris_n_81.txt;"
+
+target44 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 45 81 >> iris/iris_n_81.txt;"
+
+target45 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 46 81 >> iris/iris_n_81.txt;"
+
+target46 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 47 81 >> iris/iris_n_81.txt;"
+
+target47 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 48 81 >> iris/iris_n_81.txt;"
+
+target48 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 49 81 >> iris/iris_n_81.txt;"
+
+target49 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 50 81 >> iris/iris_n_81.txt;"
+
+target50 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 51 81 >> iris/iris_n_81.txt;"
+
+target51 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 52 81 >> iris/iris_n_81.txt;"
+
+target52 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 53 81 >> iris/iris_n_81.txt;"
+
+target53 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 54 81 >> iris/iris_n_81.txt;"
+
+target54 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 55 81 >> iris/iris_n_81.txt;"
+
+target55 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 56 81 >> iris/iris_n_81.txt;"
+
+target56 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 57 81 >> iris/iris_n_81.txt;"
+
+target57 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 58 81 >> iris/iris_n_81.txt;"
+
+target58 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 59 81 >> iris/iris_n_81.txt;"
+
+target59 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 60 81 >> iris/iris_n_81.txt;"
+
+target60 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 61 81 >> iris/iris_n_81.txt;"
+
+target61 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 62 81 >> iris/iris_n_81.txt;"
+
+target62 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 63 81 >> iris/iris_n_81.txt;"
+
+target63 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 64 81 >> iris/iris_n_81.txt;"
+
+target64 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 65 81 >> iris/iris_n_81.txt;"
+
+target65 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 66 81 >> iris/iris_n_81.txt;"
+
+target66 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 67 81 >> iris/iris_n_81.txt;"
+
+target67 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 68 81 >> iris/iris_n_81.txt;"
+
+target68 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 69 81 >> iris/iris_n_81.txt;"
+
+target69 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 70 81 >> iris/iris_n_81.txt;"
+
+target70 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 71 81 >> iris/iris_n_81.txt;"
+
+target71 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 72 81 >> iris/iris_n_81.txt;"
+
+target72 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 73 81 >> iris/iris_n_81.txt;"
+
+target73 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 74 81 >> iris/iris_n_81.txt;"
+
+target74 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 75 81 >> iris/iris_n_81.txt;"
+
+target75 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 76 81 >> iris/iris_n_81.txt;"
+
+target76 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 77 81 >> iris/iris_n_81.txt;"
+
+target77 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 78 81 >> iris/iris_n_81.txt;"
+
+target78 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 79 81 >> iris/iris_n_81.txt;"
+
+target79 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 80 81 >> iris/iris_n_81.txt;"
+
+target80 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 81 81 >> iris/iris_n_81.txt;"
+
+target81 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 82 81 >> iris/iris_n_81.txt;"
+
+target82 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 83 81 >> iris/iris_n_81.txt;"
+
+target83 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 84 81 >> iris/iris_n_81.txt;"
+
+target84 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 85 81 >> iris/iris_n_81.txt;"
+
+target85 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 86 81 >> iris/iris_n_81.txt;"
+
+target86 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 87 81 >> iris/iris_n_81.txt;"
+
+target87 : 
+	bash -c "cat iris-data.txt | ./split.bash 10 python kmeans.py 88 81 >> iris/iris_n_81.txt;"
+
+target88 : 

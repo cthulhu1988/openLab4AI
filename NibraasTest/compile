@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm iris-results.txt cancer-results.txt;
+
+ls iris/* -v | xargs paste > iris-results.txt;
+ls cancer/* -v | xargs paste > cancer-results.txt;

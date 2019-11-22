@@ -68,11 +68,15 @@ def classify_test_data(data, centroid_vector):
 
 def pick_centroids(data, num_clusters, random_seed):
     num_lines = len(data.index)
+    random_list = []
     for x in range(num_clusters):
         # get random line number
-        #random.seed = int(random_seed)
-        random_line_idx = np.random.randint(1,num_lines-1)
-        #random_line_idx = random.randint(1,num_lines-1)
+        random.seed = int(random_seed)
+        random_line_idx = random.randint(1,num_lines-1)
+        # check for repeate centroids
+        while random_line_idx in random_list:
+            random_line_idx = random.randint(1,num_lines-1)
+        random_list.append(random_line_idx)
         info = np.array(data)
         info = info[random_line_idx,:-1]
         # the pandas way....

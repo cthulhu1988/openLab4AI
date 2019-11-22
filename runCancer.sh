@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for s in {70..140}
+for s in {35..140}
 do
   for ((x=0;x<100;x++))
   do
