@@ -25,7 +25,7 @@ def main():
     max_iter = 0
     while not done:
         max_iter +=1
-        if centroids_all_true(centroid_vector) or max_iter > 300:
+        if centroids_all_true(centroid_vector) or max_iter > 10:
             done = True
         else:
             pass_through(centroid_vector, training_data_df)
